@@ -1,7 +1,5 @@
 package mypackage;
 
-import java.util.ArrayList;
-
 public class Profil
 {
     private String _name;
@@ -12,7 +10,6 @@ public class Profil
     private String _anniversary;
     private String _note;
 
-    private static ArrayList<Profil> _book = new ArrayList<>();
 
     public Profil(String name, String pseudo, String numberPhone, String address, String email, String anniversary, String note)
     {
@@ -23,9 +20,9 @@ public class Profil
         _email = email;
         _anniversary = anniversary;
         _note = note;
-        _book.add(this);
+ 
         verifyInfosNotNull();
-
+        PhoneBook.addToPhoneBook(this);
 
     }
 
@@ -76,13 +73,15 @@ public class Profil
 
     private boolean isValidNumberPhone(String phone)
     {
-        String regExp = "^(0[0-9])-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}$";                   // Verifie le numero de telephone.
+        //String regExp = "^(0[0-9])-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}$";                   // Verifie le numero de telephone.
+        String regExp = "^(0[0-9])[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$"; 
         return phone.matches(regExp);
     }
 
     private boolean isValidName(String name)
     {
-        String regExp = "^[A-Za-z._-|\s]+[A-Za-z._-|\s]?$";                                 // Verifie le nom et prenom, prenom non obligatoire
+        //String regExp = "^[A-Za-z._-|\s]+[A-Za-z._-|\s]?$";                                 // Verifie le nom et prenom, prenom non obligatoire
+        String regExp = "^[a-zA-Z._-]+(\\s[a-zA-Z._-]+)?$";
         return name.matches(regExp);
     }
 
@@ -127,11 +126,6 @@ public class Profil
     public String getEmail()
     {
         return _email;
-    }
-
-    public static ArrayList<Profil> getBook()
-    {
-        return _book;
     }
 
     public String getAnniversary()

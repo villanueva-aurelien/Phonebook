@@ -10,23 +10,33 @@ public class PhoneBook
 
     public PhoneBook()
     {
-        Profil p = new Profil("villa", null, "05-18-62-32-60", null, "aaa@hotmail.fr", "11/02/1982", null);
-        _book.add(p);
-        sortList();
+
     }
 
-    private void sortList()
+    private static void sortList()
     {
         Collections.sort(_book, new Comparator<Profil>()
         {
-
             @Override
             public int compare(Profil p1, Profil p2)
             {
                 return p1.getName().compareTo(p2.getName());
-            }
-            
+            }       
         });
+    }
+    
+    public static void addToPhoneBook(Profil p)
+    {
+        System.out.println("ajoute 1 profil");
+        _book.add(p);
+        sortList();
+        System.out.println(_book.size());
+
+        for(int i =0; i < _book.size(); i++)
+        {
+            System.out.println("bon");
+            System.out.println(_book.get(i).getNumber());
+        }
     }
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
