@@ -27,16 +27,8 @@ public class PhoneBook
     
     public static void addToPhoneBook(Profil p)
     {
-        System.out.println("ajoute 1 profil");
         _book.add(p);
         sortList();
-        System.out.println(_book.size());
-
-        for(int i =0; i < _book.size(); i++)
-        {
-            System.out.println("bon");
-            System.out.println(_book.get(i).getNumber());
-        }
     }
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

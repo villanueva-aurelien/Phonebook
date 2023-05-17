@@ -17,7 +17,7 @@ public class MainApp
         jf.setLocationRelativeTo(null);
         jf.setVisible(true);
 
-        PanelAddContact pac = new PanelAddContact();
+        PanelGlobal pac = new PanelGlobal();
         jf.add(pac);
         _currentPanel = pac;
         jf.pack();
@@ -26,7 +26,6 @@ public class MainApp
 
     public static void updateJFrame(JPanel j)
     {
-        System.out.println();
         if(j == null)
             return;
         
