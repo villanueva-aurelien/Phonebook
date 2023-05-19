@@ -1,16 +1,12 @@
 package mypackage;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -100,6 +96,7 @@ public class PanelFormularContact extends JPanel
                     createProfil();
                     PhoneBook.addToPhoneBook(_currentProfil);
                     updateMainApp();
+                    SaveToFile s = new SaveToFile(_name, _name, _pseudo, _number, _address, _email, _anniversary, _note);
                 }
                               
             }    
@@ -216,7 +213,7 @@ public class PanelFormularContact extends JPanel
 
     private boolean isValidAddress(String address)
     {
-        String regExp = "^[\\d.|\s]+[\\w.-|\s]+.[\\d{2,8|\s}]+[\\w-].+$";
+        String regExp = "^[\\d]+(\\s[a-zA-Z0-9._-]+)*$";
         return address.matches(regExp);
     }
 

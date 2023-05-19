@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 public class PanelDisplayContact extends JPanel
 {
@@ -30,7 +29,7 @@ public class PanelDisplayContact extends JPanel
 
         createField(0, 0, p.getName());
         
-        createField( 0, 1, p.getPeudo());
+        createField( 0, 1, p.getPseudo());
 
         createField(0, 2, p.getNumber());
 
@@ -126,8 +125,9 @@ public class PanelDisplayContact extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                deleteFile();
                 updateDeleteConctact();
-                updateMainApp();
+                updateMainApp();              
             }
             
         });
@@ -174,5 +174,11 @@ public class PanelDisplayContact extends JPanel
     private void updateDeleteConctact()
     {
         PanelGlobal.deleteContact();
+    }
+
+    private void deleteFile()
+    {
+        Profil p = PanelGlobal.selectFileContact();
+        SaveToFile.deleteFile(p.getName());
     }
 }

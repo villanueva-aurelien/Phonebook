@@ -2,6 +2,7 @@ package mypackage;
 
 public class Profil
 {
+    private static int _numberProfil = 0;
     private String _name;
     private String _pseudo;
     private String _numberPhone;
@@ -31,6 +32,7 @@ public class Profil
         _email = email;
         _anniversary = anniversary;
         _note = note;
+        _numberProfil++;
      }
 
     public Profil(String name, String pseudo, String numberPhone)
@@ -51,7 +53,7 @@ public class Profil
         return _name;
     }
 
-    public String getPeudo()
+    public String getPseudo()
     {
         return _pseudo;
     }
@@ -114,5 +116,15 @@ public class Profil
     protected void setNote(String note)
     {
         _note = note;
+    }
+
+    protected  static void setNumberProfil(int value)
+    {
+        _numberProfil = value;
+    }
+
+    protected static int getNumberProfil()
+    {
+        return _numberProfil;
     }
 }
