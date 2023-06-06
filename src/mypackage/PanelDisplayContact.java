@@ -27,18 +27,25 @@ public class PanelDisplayContact extends JPanel
         this.setPreferredSize(new Dimension(400, 400));
         this.setLayout(new GridBagLayout());        
 
-        createField(0, 0, p.getName());
+        createField(0, 0, "Name");
+        createField(1, 0, p.getName());
         
-        createField( 0, 1, p.getPseudo());
+        createField(0, 1, "Pseudo");
+        createField( 1, 1, p.getPseudo());
 
-        createField(0, 2, p.getNumber());
+        createField(0, 2, "NumberPhone");
+        createField(1, 2, p.getNumberPhone());
 
-        createField( 0, 3, p.getAddress());
+        createField(0, 3, "Address");
+        createField( 1, 3, p.getAddress());
 
-        createField( 0, 4, p.getEmail());
+        createField(0, 4, "Email");
+        createField( 1, 4, p.getEmail());
 
-        createField(0, 5, p.getAnniversary());
+        createField(0, 5, "Anniversary");
+        createField(1, 5, p.getAnniversary());
 
+        createFieldNote(0, 6, "Note");
         createFieldNote(1, 6, p.getNote());
 
         JButton jbPrevious = new JButton("Previous");
@@ -125,7 +132,6 @@ public class PanelDisplayContact extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                deleteFile();
                 updateDeleteConctact();
                 updateMainApp();              
             }
@@ -176,9 +182,4 @@ public class PanelDisplayContact extends JPanel
         PanelGlobal.deleteContact();
     }
 
-    private void deleteFile()
-    {
-        Profil p = PanelGlobal.selectFileContact();
-        SaveToFile.deleteFile(p.getName());
-    }
 }

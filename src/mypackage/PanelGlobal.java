@@ -95,9 +95,14 @@ public class PanelGlobal extends JPanel
     public static void deleteContact()
     {
         if(Profil.getNumberProfil() == 0)
+        {
             return;
+        }
+
         if(PhoneBook.getBook() == null)
+        {
             MainApp.updateJFrame(new PanelGlobal());
+        }
 
         PhoneBook.getBook().remove(_currentIndex);
         Profil.setNumberProfil(-1);

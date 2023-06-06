@@ -25,11 +25,31 @@ public class PhoneBook
         });
     }
     
+    /**
+     * This method add Profil to ArrayList<Profil>
+     * @param p     is Profil
+     */
     public static void addToPhoneBook(Profil p)
     {
         _book.add(p);
-        sortList();
+        if(_book.size() >= 2)
+            sortList();
     }
+
+    /**
+     * This method add to ArrayList<Profil> this ArrayList<Profil>
+     * @param list     is ArrayList<Profil>
+     */
+    public static void transfertList(ArrayList<Profil> list)
+    {
+        if(list.isEmpty())
+        {
+            return;
+        }
+        
+        _book.addAll(list);
+    }
+    
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     public static ArrayList<Profil> getBook()

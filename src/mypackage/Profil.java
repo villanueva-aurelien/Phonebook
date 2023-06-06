@@ -45,6 +45,11 @@ public class Profil
         this(name, null, numberPhone);
     }
 
+    public Profil()
+    {
+        
+    }
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -58,7 +63,7 @@ public class Profil
         return _pseudo;
     }
 
-    public String getNumber()
+    public String getNumberPhone()
     {
         return _numberPhone;
     }

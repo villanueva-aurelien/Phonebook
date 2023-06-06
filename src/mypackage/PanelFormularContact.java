@@ -24,6 +24,10 @@ public class PanelFormularContact extends JPanel
     private String _name, _pseudo, _number, _address, _email, _anniversary, _note;
     private Profil _currentProfil;
     private int _occurenceError = 0;
+
+    /**
+     * This interface content 1 method
+     */
     public interface Command
     {
         public boolean execute();
@@ -96,7 +100,8 @@ public class PanelFormularContact extends JPanel
                     createProfil();
                     PhoneBook.addToPhoneBook(_currentProfil);
                     updateMainApp();
-                    SaveToFile s = new SaveToFile(_name, _name, _pseudo, _number, _address, _email, _anniversary, _note);
+                    //SaveToFile s = new SaveToFile(_name, _name, _pseudo, _number, _address, _email, _anniversary, _note);
+                    //SaveToJson save = new SaveToJson(_currentProfil);
                 }
                               
             }    
@@ -197,7 +202,7 @@ public class PanelFormularContact extends JPanel
 
     private boolean isValidPseudo(String pseudo)
     {
-        String regExp = "^[A-Za-z._-|\s]+$";                                 
+        String regExp = "^[A-Za-z._-]+(\\s[a-zA-Z._-]+)?$";                                 
         return pseudo.matches(regExp);
     }
 
