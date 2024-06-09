@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import mypackage.SaveProfilJson.JsonLoader;
+
 public class LoadProfilJson
 {
  
@@ -34,7 +36,6 @@ public class LoadProfilJson
             
             
             _listeObjets = mapper.readValue(file, new TypeReference<ArrayList<Profil>>() {});
-            Profil.setNumberProfil(_listeObjets.size());
             PhoneBook.transfertList(_listeObjets);
             // Vous pouvez remplacer cette ligne par votre propre code pour traiter la liste d'objets.
         }

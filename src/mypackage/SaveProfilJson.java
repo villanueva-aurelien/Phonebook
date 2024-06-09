@@ -14,7 +14,17 @@ public class SaveProfilJson
     ObjectMapper _objectMapper = new ObjectMapper();
     private ArrayList<Profil> _listeObjets;
   
-  
+    public class JsonLoader
+    {
+        public int _compteur = 0;
+        public ArrayList<Profil> _profils;
+
+        public JsonLoader()
+        {
+
+        }
+    }
+
     public SaveProfilJson()
     {
 
@@ -28,8 +38,12 @@ public class SaveProfilJson
     {
         try
         {
+            JsonLoader jl = new JsonLoader();
+            jl._compteur =Profil._compteur;
+            jl._profils = PhoneBook.getBook();
+            
             //objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
-            _objectMapper.writeValue(new File("PhoneBook.json"), PhoneBook.getBook());
+            _objectMapper.writeValue(new File("PhoneBook.json"), jl);
         }
         catch (IOException e)
         {

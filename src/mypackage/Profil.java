@@ -3,6 +3,7 @@ package mypackage;
 public class Profil
 {
     private static int _numberProfil = 0;
+    public static int _compteur = 0;
     private String _name;
     private String _pseudo;
     private String _numberPhone;
@@ -33,6 +34,7 @@ public class Profil
         _anniversary = anniversary;
         _note = note;
         _numberProfil++;
+        _compteur++;
      }
 
     public Profil(String name, String pseudo, String numberPhone)
@@ -47,7 +49,7 @@ public class Profil
 
     public Profil()
     {
-        
+        this(null, null);
     }
 
 
